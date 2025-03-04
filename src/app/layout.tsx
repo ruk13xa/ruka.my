@@ -1,5 +1,6 @@
 import './globals.css';
 import localFont from 'next/font/local';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const scdream = localFont({
   src: '../fonts/SCDream4.otf',
@@ -14,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body
         className={`${scdream.variable} font-scdream`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
