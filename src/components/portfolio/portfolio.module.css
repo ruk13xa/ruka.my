@@ -41,6 +41,14 @@
   overflow: hidden;
 }
 
+@media (pointer: fine) {
+  .root,
+  .root a,
+  .root button {
+    cursor: none;
+  }
+}
+
 .root ::selection {
   background: oklch(0.75 0.17 200);
   color: #05070a;
