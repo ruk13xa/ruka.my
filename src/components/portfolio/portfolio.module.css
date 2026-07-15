@@ -1,0 +1,262 @@
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -40px); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-40px, 30px); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes meshRotate {
+  0% { transform: rotate(0deg) scale(1.2); }
+  50% { transform: rotate(180deg) scale(1.4); }
+  100% { transform: rotate(360deg) scale(1.2); }
+}
+@keyframes gridGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.root {
+  background: #05070a;
+  color: oklch(0.92 0.005 240);
+  font-family: var(--font-space-grotesk), sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.root ::selection {
+  background: oklch(0.75 0.17 200);
+  color: #05070a;
+}
+
+.mesh {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  background: conic-gradient(
+    from 0deg at 30% 30%,
+    oklch(0.3 0.09 220 / 0.4),
+    transparent 30%,
+    oklch(0.28 0.1 290 / 0.25) 50%,
+    transparent 70%,
+    oklch(0.3 0.1 195 / 0.3) 90%,
+    oklch(0.3 0.09 220 / 0.4) 100%
+  );
+  animation: meshRotate 90s linear infinite;
+  filter: blur(90px);
+}
+
+.radials {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 50% -10%, oklch(0.35 0.08 220 / 0.4), transparent 72%),
+    radial-gradient(ellipse 900px 600px at 100% 100%, oklch(0.32 0.09 195 / 0.22), transparent 72%),
+    radial-gradient(ellipse 800px 500px at 0% 60%, oklch(0.28 0.09 290 / 0.14), transparent 72%);
+}
+
+.grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  contain: paint;
+  background-image:
+    linear-gradient(oklch(0.55 0.1 195 / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.55 0.1 195 / 0.1) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 15%, black, transparent 70%);
+  animation: gridGlow 10s ease-in-out infinite;
+}
+
+.orb1 {
+  position: fixed;
+  top: -12%;
+  left: -8%;
+  width: 52vw;
+  height: 52vw;
+  max-width: 720px;
+  max-height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.55 0.1 195 / 0.14), transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  contain: paint;
+  transform: translateZ(0);
+  animation: float1 34s ease-in-out infinite;
+}
+
+.orb2 {
+  position: fixed;
+  bottom: -16%;
+  right: -10%;
+  width: 56vw;
+  height: 56vw;
+  max-width: 780px;
+  max-height: 780px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.45 0.11 290 / 0.14), transparent 70%);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: 0;
+  contain: paint;
+  transform: translateZ(0);
+  animation: float2 40s ease-in-out infinite;
+}
+
+.topScan {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.7 0.12 195 / 0.5), transparent);
+  animation: scan 16s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  contain: paint;
+  box-shadow: 0 0 16px 2px oklch(0.7 0.12 195 / 0.3);
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: inset 0 0 280px 80px oklch(0.02 0 0 / 0.7);
+}
+
+.heroScan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, oklch(0.8 0.18 195 / 0.8), transparent);
+  animation: scan 6s linear infinite;
+}
+
+.heroOrb1 {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.55 0.16 195 / 0.14), transparent 70%);
+  right: 5%;
+  top: 10%;
+  filter: blur(10px);
+  animation: float1 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.heroOrb2 {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.6 0.14 230 / 0.12), transparent 70%);
+  left: 12%;
+  bottom: 8%;
+  filter: blur(10px);
+  animation: float2 11s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.eyebrow {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease 0.1s forwards;
+}
+
+.eyebrowDot {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.h1 {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.25s forwards;
+}
+
+.blinkCursor {
+  animation: blink 1s step-end infinite;
+}
+
+.heroBody {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+.heroCtas {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.55s forwards;
+}
+
+.ctaPrimary {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px oklch(0.8 0.17 195 / 0.35);
+}
+
+.ctaSecondary {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.ctaSecondary:hover {
+  border-color: oklch(0.8 0.17 195);
+  transform: translateY(-3px);
+}
+
+.timelineDot {
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.projectRow {
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.projectRow:hover {
+  background: oklch(0.5 0.15 195 / 0.06);
+  transform: translateX(6px);
+}
+.projectTitle {
+  transition: text-shadow 0.15s ease;
+}
+.projectRow:hover .projectTitle {
+  text-shadow: -2px 0 oklch(0.8 0.17 195 / 0.85), 2px 0 oklch(0.55 0.2 320 / 0.85);
+}
+
+.skillCard {
+  background: #05070a;
+  transition: background 0.25s ease;
+}
+.skillCard:hover {
+  background: oklch(0.15 0.02 220);
+}
+
+.contactEmail {
+  transition: color 0.2s ease;
+}
+.contactEmail:hover {
+  color: oklch(0.95 0.16 195);
+}
