@@ -285,7 +285,7 @@ export default function Portfolio() {
             />
           </div>
           <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 18, letterSpacing: '0.05em', color: CYAN_BRIGHT }}>
-            ruka<span style={{ color: 'oklch(0.92 0.005 240)' }}>.dev</span>
+            ruka<span style={{ color: 'oklch(0.92 0.005 240)' }}>.my</span>
           </div>
         </div>
         <div
