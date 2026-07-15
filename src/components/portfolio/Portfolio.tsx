@@ -28,6 +28,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState<SectionId>('about');
 
   const glowRef = useRef<HTMLDivElement | null>(null);
+  const cursorRef = useRef<HTMLDivElement | null>(null);
   const throttled = useRef(false);
   const statsStartedRef = useRef(false);
 
@@ -107,9 +108,21 @@ export default function Portfolio() {
       })
       .catch(() => {});
 
+    let onCursorMove: ((e: MouseEvent) => void) | undefined;
+    if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+      onCursorMove = (e: MouseEvent) => {
+        if (cursorRef.current) {
+          cursorRef.current.style.display = 'block';
+          cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        }
+      };
+      window.addEventListener('mousemove', onCursorMove, { passive: true });
+    }
+
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
+      if (onCursorMove) window.removeEventListener('mousemove', onCursorMove);
       clearTimeout(t);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -498,6 +511,25 @@ export default function Portfolio() {
           </a>
         </div>
       </section>
+
+      <div
+        ref={cursorRef}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: 16,
+          height: 16,
+          margin: -8,
+          borderRadius: '50%',
+          background: 'oklch(0.8 0.18 195 / 0.9)',
+          boxShadow: '0 0 18px 6px oklch(0.8 0.18 195 / 0.5)',
+          pointerEvents: 'none',
+          zIndex: 50,
+          mixBlendMode: 'screen',
+          display: 'none',
+        }}
+      />
 
       <section
         id="about"
