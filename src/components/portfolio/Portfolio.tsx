@@ -357,13 +357,15 @@ export default function Portfolio() {
       {menuOpen && (
         <div
           style={{
-            position: 'sticky',
-            top: 0,
+            position: 'fixed',
+            top: navScrolled ? 60 : 76,
+            left: 0,
+            right: 0,
             zIndex: 19,
             background: 'oklch(0.05 0.01 240 / 0.98)',
             backdropFilter: 'blur(12px)',
             borderBottom: '1px solid oklch(0.3 0.05 220 / 0.3)',
-            padding: '8px 20px 28px',
+            padding: '20px 20px 28px',
             display: 'flex',
             flexDirection: 'column',
             gap: 22,
