@@ -858,6 +858,9 @@ export default function Portfolio() {
           <a href="https://velog.io/@ruk13xa" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
             VELOG
           </a>
+          <a href="https://uptime.ruka.my/status/ruka" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+            STATUS
+          </a>
         </div>
         <div style={{ marginTop: 100, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 12, color: 'oklch(0.4 0.02 240)' }}>
           © 2026 RUKA. ALL RIGHTS RESERVED.
