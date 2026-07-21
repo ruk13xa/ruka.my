@@ -35,13 +35,6 @@ export const fallbackProjects: Project[] = [
     tags: ['Problem Solving', 'Algorithms'],
     href: 'https://github.com/ruk13xa/BOJ',
   },
-  {
-    index: '05',
-    title: '햄스터봇 글래디에이터',
-    desc: '확장 쉴드와 서보 모터를 결합한 로봇 배틀 게임 기획 — 센서 기반 특수 효과와 경기장 기믹을 포함한 교육용 로봇 배틀 디자인',
-    tags: ['Hamster Robot', 'Servo Motor', 'Game Design', 'Entry/Python'],
-    href: 'https://claude.ai/share/9d5dc919-47b7-4f16-a6ec-c0c1cfb4e99c',
-  },
 ];
 
 export const skillGroups = [
@@ -74,6 +67,13 @@ export const skillGroups = [
   },
 ];
 
-export const timeline = [{ period: '---', role: '---', org: '---', desc: '---' }];
+export const timeline = [
+  {
+    period: '2026',
+    role: '기획 / 하드웨어 설계',
+    org: '햄스터봇 글래디에이터',
+    desc: '확장 쉴드와 서보 모터를 결합한 로봇 배틀 게임 기획. 집게형·플리퍼형·방패형 무기 설계, 경기장 기믹, 바닥/근접 센서를 활용한 경고 알람·오버히트·전투 상태 연출 등 하드웨어와 소프트웨어를 함께 설계.',
+  },
+];
 
 export const sectionIds = ['about', 'work', 'skills', 'timeline', 'contact'] as const;
