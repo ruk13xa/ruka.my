@@ -74,6 +74,12 @@ export const timeline = [
     org: '햄스터봇 글래디에이터',
     desc: '확장 쉴드와 서보 모터를 결합한 로봇 배틀 게임 기획. 집게형·플리퍼형·방패형 무기 설계, 경기장 기믹, 바닥/근접 센서를 활용한 경고 알람·오버히트·전투 상태 연출 등 하드웨어와 소프트웨어를 함께 설계.',
   },
+  {
+    period: '2026',
+    role: '개발',
+    org: '절대음감 트레이너 (AbsolutePitch)',
+    desc: 'Next.js·TypeScript·Tailwind CSS와 Web Audio API로 만든 청음 훈련 웹앱. 음 맞추기·인터벌 맞추기·코드 맞추기 훈련과 localStorage 기반 통계 기능을 구현.',
+  },
 ];
 
 export const sectionIds = ['about', 'work', 'skills', 'timeline', 'contact'] as const;
